@@ -34,14 +34,14 @@ const CHAIN_DICTIONARY = {
 /**
  * Required chain to interact with contract
  */
-const CHAIN_ID_REQUIRED = 80001; //Mumbai
+const CHAIN_ID_REQUIRED = 5; //goerli
 
 /**
  * Same contract deployed to each network
  */
 const CONTRACT_ON_CHAINS = {
     1: '0x76460E73eadE1DDe315E07a5eCa092448c193a2F',
-    5: '0x3aC587078b344a3d27e56632dFf236F1Aff04D56',
+    5: '0x27a0663D2AE8925F814073D81ef54EF182AD5ed9',
     137: '0x375F01b156D9BdDDd41fd38c5CC74C514CB71f73',
     1337: '',
     1402: '0x76460E73eadE1DDe315E07a5eCa092448c193a2F',
@@ -66,63 +66,33 @@ const BLOCKCHAIN_EXPLORERS = {
  * ABI needed to interpret how to interact with the contract
  */
 const CONTRACT_ABI = [
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "_greeting",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": false,
-                "internalType": "address",
-                "name": "sender",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "string",
-                "name": "message",
-                "type": "string"
-            }
-        ],
-        "name": "NewGreeting",
-        "type": "event"
-    },
-    {
-        "inputs": [],
-        "name": "getGreeting",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "string",
-                "name": "_greeting",
-                "type": "string"
-            }
-        ],
-        "name": "setGreeting",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    }
-];
+			{
+				"inputs": [],
+				"name": "ReadYourStory",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "txt",
+						"type": "string"
+					}
+				],
+				"name": "WriteYourStory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		];
 
 // Functions
 // ========================================================
@@ -391,7 +361,7 @@ const onSubmitContractWrite = async (event) => {
     button.setAttribute('disabled', true);
 
     // Setup Interface + Encode Function
-    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'setGreeting');
+    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'HoffnungProject');
     const interface = new ethers.utils.Interface([SetGreeting]);
     const encodedFunction = interface.encodeFunctionData(`${SetGreeting.name}`, [greeting]);
     console.log({ encodedFunction });
