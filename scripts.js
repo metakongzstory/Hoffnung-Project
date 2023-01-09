@@ -22,13 +22,7 @@ const CHAIN_CONNECTED = {
  * Chain ids and their names
  */
 const CHAIN_DICTIONARY = {
-    1: 'Ethereum Mainnet',
-    5: 'Goerli Testnet',
-    137: 'Polygon Mainnet',
-    1337: 'Localhost',
-    1402: 'zkEVM Testnet',
-    80001: 'Mumbai Testnet',
-    11155111: 'Sepolia Testnet'
+    5: 'Goerli Testnet'
 };
 
 /**
@@ -40,26 +34,14 @@ const CHAIN_ID_REQUIRED = 5; //goerli
  * Same contract deployed to each network
  */
 const CONTRACT_ON_CHAINS = {
-    1: '0x76460E73eadE1DDe315E07a5eCa092448c193a2F',
-    5: '0x27a0663D2AE8925F814073D81ef54EF182AD5ed9',
-    137: '0x375F01b156D9BdDDd41fd38c5CC74C514CB71f73',
-    1337: '',
-    1402: '0x76460E73eadE1DDe315E07a5eCa092448c193a2F',
-    80001: '0x7Bd54062eFa363A97dC20f404825597455E93582',
-    11155111: '0x375f01b156d9bdddd41fd38c5cc74c514cb71f73',
+    5: '0x27a0663D2AE8925F814073D81ef54EF182AD5ed9'
 };
 
 /**
  * All blockchain explorers
  */
 const BLOCKCHAIN_EXPLORERS = {
-    1: 'https://etherscan.io',
-    5: 'https://goerli.etherscan.io',
-    137: 'https://polygonscan.com',
-    1337: null,
-    1402: 'https://explorer.public.zkevm-test.net',
-    80001: 'https://mumbai.polygonscan.com',
-    11155111: 'https://sepolia.etherscan.io',
+    5: 'https://goerli.etherscan.io'
 };
 
 /**
