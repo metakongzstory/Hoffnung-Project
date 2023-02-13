@@ -378,6 +378,8 @@ window.onload = async () => {
     console.group('window.onload');
 
     // Replace elements with required chain name
+	const nickname = document.getElementById("nickname").value;
+
     const chainNameReplace = document.querySelectorAll('.chain-name');
     chainNameReplace.forEach(el => {
         el.innerHTML = `${CHAIN_DICTIONARY[CHAIN_ID_REQUIRED]}`
